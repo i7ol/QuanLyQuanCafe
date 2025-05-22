@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txbUserName = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -54,20 +54,20 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtUserName);
+            this.panel2.Controls.Add(this.txbUserName);
             this.panel2.Controls.Add(this.labelControl1);
             this.panel2.Location = new System.Drawing.Point(5, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(494, 74);
             this.panel2.TabIndex = 1;
             // 
-            // txtUserName
+            // txbUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(175, 25);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
-            this.txtUserName.Size = new System.Drawing.Size(294, 22);
-            this.txtUserName.TabIndex = 1;
+            this.txbUserName.Location = new System.Drawing.Point(175, 25);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
+            this.txbUserName.Size = new System.Drawing.Size(294, 22);
+            this.txbUserName.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -120,6 +120,7 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(294, 22);
             this.txbPassWord.TabIndex = 1;
+            this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // labelControl3
             // 
@@ -146,6 +147,7 @@
             this.txbNewPass.Name = "txbNewPass";
             this.txbNewPass.Size = new System.Drawing.Size(294, 22);
             this.txbNewPass.TabIndex = 1;
+            this.txbNewPass.UseSystemPasswordChar = true;
             // 
             // labelControl4
             // 
@@ -172,6 +174,7 @@
             this.txbReEnterPass.Name = "txbReEnterPass";
             this.txbReEnterPass.Size = new System.Drawing.Size(294, 22);
             this.txbReEnterPass.TabIndex = 1;
+            this.txbReEnterPass.UseSystemPasswordChar = true;
             // 
             // labelControl5
             // 
@@ -191,6 +194,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExit
             // 
@@ -237,7 +241,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txbUserName;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txbDisplayName;

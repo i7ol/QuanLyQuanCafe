@@ -51,7 +51,7 @@
             this.txbFoodName = new System.Windows.Forms.TextBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txbFoodNameId = new System.Windows.Forms.TextBox();
+            this.txbFoodId = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnShowFood = new System.Windows.Forms.Button();
@@ -293,14 +293,14 @@
             // 
             // nmFoodPrice
             // 
-            this.nmFoodPrice.Location = new System.Drawing.Point(129, 18);
+            this.nmFoodPrice.Location = new System.Drawing.Point(143, 18);
             this.nmFoodPrice.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.nmFoodPrice.Name = "nmFoodPrice";
-            this.nmFoodPrice.Size = new System.Drawing.Size(214, 22);
+            this.nmFoodPrice.Size = new System.Drawing.Size(200, 22);
             this.nmFoodPrice.TabIndex = 1;
             // 
             // labelControl4
@@ -325,9 +325,9 @@
             // cbFoodCategory
             // 
             this.cbFoodCategory.FormattingEnabled = true;
-            this.cbFoodCategory.Location = new System.Drawing.Point(129, 16);
+            this.cbFoodCategory.Location = new System.Drawing.Point(143, 16);
             this.cbFoodCategory.Name = "cbFoodCategory";
-            this.cbFoodCategory.Size = new System.Drawing.Size(214, 24);
+            this.cbFoodCategory.Size = new System.Drawing.Size(200, 24);
             this.cbFoodCategory.TabIndex = 1;
             // 
             // labelControl3
@@ -351,9 +351,9 @@
             // 
             // txbFoodName
             // 
-            this.txbFoodName.Location = new System.Drawing.Point(129, 20);
+            this.txbFoodName.Location = new System.Drawing.Point(143, 20);
             this.txbFoodName.Name = "txbFoodName";
-            this.txbFoodName.Size = new System.Drawing.Size(214, 22);
+            this.txbFoodName.Size = new System.Drawing.Size(200, 22);
             this.txbFoodName.TabIndex = 1;
             // 
             // labelControl2
@@ -368,20 +368,21 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.txbFoodNameId);
+            this.panel8.Controls.Add(this.txbFoodId);
             this.panel8.Controls.Add(this.labelControl1);
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(352, 57);
             this.panel8.TabIndex = 3;
             // 
-            // txbFoodNameId
+            // txbFoodId
             // 
-            this.txbFoodNameId.Location = new System.Drawing.Point(129, 20);
-            this.txbFoodNameId.Name = "txbFoodNameId";
-            this.txbFoodNameId.ReadOnly = true;
-            this.txbFoodNameId.Size = new System.Drawing.Size(214, 22);
-            this.txbFoodNameId.TabIndex = 1;
+            this.txbFoodId.Location = new System.Drawing.Point(143, 20);
+            this.txbFoodId.Name = "txbFoodId";
+            this.txbFoodId.ReadOnly = true;
+            this.txbFoodId.Size = new System.Drawing.Size(200, 22);
+            this.txbFoodId.TabIndex = 1;
+            this.txbFoodId.TextChanged += new System.EventHandler(this.txbFoodId_TextChanged);
             // 
             // labelControl1
             // 
@@ -412,6 +413,7 @@
             this.btnShowFood.TabIndex = 3;
             this.btnShowFood.Text = "Xem";
             this.btnShowFood.UseVisualStyleBackColor = true;
+            this.btnShowFood.Click += new System.EventHandler(this.btnShowFood_Click);
             // 
             // btnUpdateFood
             // 
@@ -421,6 +423,7 @@
             this.btnUpdateFood.TabIndex = 2;
             this.btnUpdateFood.Text = "Sửa";
             this.btnUpdateFood.UseVisualStyleBackColor = true;
+            this.btnUpdateFood.Click += new System.EventHandler(this.btnUpdateFood_Click);
             // 
             // btnDeleteFood
             // 
@@ -430,6 +433,7 @@
             this.btnDeleteFood.TabIndex = 1;
             this.btnDeleteFood.Text = "Xóa";
             this.btnDeleteFood.UseVisualStyleBackColor = true;
+            this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
             // 
             // btnAddFood
             // 
@@ -439,6 +443,7 @@
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // panel3
             // 
@@ -1039,7 +1044,7 @@
         private System.Windows.Forms.Button btnSearchFood;
         private System.Windows.Forms.TextBox txbSearchFoodName;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txbFoodNameId;
+        private System.Windows.Forms.TextBox txbFoodId;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txbFoodName;

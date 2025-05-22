@@ -42,7 +42,7 @@ namespace QuanLyQuanCafe
         void ChangeAccount(int type)
         {
             adminToolStripMenuItem.Enabled = type == 1;
-            thôngTinToolStripMenuItem.Text += " (" + LoginAccount.DisplayName +")";
+            thôngTinToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
         }
 
         void LoadCategory()
@@ -125,7 +125,7 @@ namespace QuanLyQuanCafe
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,9 +141,33 @@ namespace QuanLyQuanCafe
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.InsertFood += f_InsertFood;
+            f.UpdateFood += f_UpdateFood;
+            f.DeleteFood += f_DeleteFood;
             f.ShowDialog();
         }
-        
+
+        private void f_DeleteFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryId((cbCategory.SelectedItem as Category).Id);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).Id);
+            LoadTable();
+        }
+
+        private void f_UpdateFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryId((cbCategory.SelectedItem as Category).Id);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).Id);
+        }
+
+        private void f_InsertFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryId((cbCategory.SelectedItem as Category).Id);
+            if(lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).Id);
+        }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -164,21 +188,26 @@ namespace QuanLyQuanCafe
         {
             Table table = lsvBill.Tag as Table;
 
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn");
+                return;
+            }
+
             int idBill = BillDAO.Instance.GetUncheckBillIdByTableId(table.Id);
-
-            int idFood = (cbFood.SelectedItem as Food).Id;
-
+            int foodId = (cbFood.SelectedItem as Food).Id;
             int count = (int)nmFoodCount.Value;
 
-            if(idBill == -1)
+            if (idBill == -1)
             {
                 BillDAO.Instance.InsertBill(table.Id);
-                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIdBill(),idFood,count);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIdBill(), foodId, count);
             }
             else
             {
-                BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodId, count);
             }
+
             ShowBill(table.Id);
 
             LoadTable();
